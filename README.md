@@ -66,9 +66,9 @@ scan off
 
 (it's of course also possible to get the bluetooth MAC address from the phone's "About phone" menu)
 
-trust <Bluetooth MAC address>
+trust (Bluetooth MAC address)
 
-pair <Bluetooth MAC address>
+pair (Bluetooth MAC address)
 
 (if getting errors pairing, when it has worked before with the device, run: remove <Bluetooth MAC address> and then trust it again, it can also be a result of an already paried device in the case that you have done it before)
 
