@@ -14,22 +14,30 @@ Things needed:
 
 
 Start with adding the WiFi-Connect payload (and acompanying extension) to get the Owl online in attack mode (to avoid the need to put the Owl in arming mode all the time)
+
 https://docs.hak5.org/hc/en-us/articles/360034023933-Getting-the-Signal-Owl-Online
+
 https://github.com/hak5/signalowl-payloads/blob/master/payloads/library/wifi/WiFi-Connect/payload.txt
+
 https://github.com/hak5/signalowl-payloads/blob/master/payloads/extensions/wifi_connect.sh
+
 
 Find out the IP address that the Owl got on the network to which it is connected and then ssh into it and verify internet access
 
 Power the Owl off and connect the USB Bluetooth adapter to the Owl (to the host port), then boot it up again and ssh into it
 
 Most of the tools needed to connect Bluetooth devices should already be available on the Owl, but we might need to set the bps for the "emulated" COM port later on, so let's install a util package to get stty on the system
+
 opkg update
+
 opkg install coreutils-stty
 
-Then run the following command to get information about the Bluetooth adapter
+Then run the following command to get information about the Bluetooth adapter:
+
 hciconfig
 
 Note the device name (most likely hci0) and also note the fact that it is probably in the state DOWN, bring the device up using:
+
 hciconfig hci0 up
 
 Run hciconfig again to verify that the state now has been changed to UP (or UP RUNNING PSCAN)
@@ -38,7 +46,8 @@ Make sure the device you want to connect to (the Android phone) is in "discovery
 
 Also start the Bluetooth app on the phone and set "Bluetooth Service Controls" to "Enabled"
 
-Run
+Run:
+
 bluetoothctl
 
 Then, from the [bluetooth]# prompt, run:
