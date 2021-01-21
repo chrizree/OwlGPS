@@ -13,7 +13,7 @@ Things needed:
 - A computer with (preferably) Linux, using Kali Linux here on a Lenovo X220
 
 
-Start with adding the WiFi-Connect payload (and acompanying extension) to get the Owl online in attack mode (to avoid the need to put the Owl in arming mode all the time)
+Start with adding the WiFi-Connect payload (and the extension) to get the Owl online in attack mode (to avoid the need to put the Owl in arming mode all the time)
 
 https://docs.hak5.org/hc/en-us/articles/360034023933-Getting-the-Signal-Owl-Online
 
