@@ -51,27 +51,41 @@ Run:
 bluetoothctl
 
 Then, from the [bluetooth]# prompt, run:
+
 power on
+
 agent on
+
 default-agent
+
 scan on
+
 Devices should now start to pop up on the screen. Discover the Bluetooth MAC address of the Android phone in the list of scanned devices that appears.
+
 scan off
+
 (it's of course also possible to get the bluetooth MAC address from the phone's "About phone" menu)
 
 trust <Bluetooth MAC address>
+
 pair <Bluetooth MAC address>
+
 (if getting errors pairing, when it has worked before with the device, run: remove <Bluetooth MAC address> and then trust it again, it can also be a result of an already paried device in the case that you have done it before)
+
 connect <Bluetooth MAC address>
+
 (connect might sometimes throw errors, just ignore it, for some reason it works anyway, just move on)
 
 exit (or quit)
 
 sdptool browse <Bluetooth MAC address>
+
 Identify the channel that the GPS data is coming from/on in the output from the above command, most likely something tagged with "Serial Port"
 
 rfcomm bind hci0 <Bluetooth MAC address> 8
+
 (where: hci0=the BT device, the MAC address is the MAC address of the GPS device, 8=channel)
+
 the command above will create a serial interface on the Owl
 
 Execute rfcomm without parameters and it will output the created device in /dev, such as rfcomm0
@@ -81,9 +95,11 @@ Run ls /dev to see the new device rfcomm0
 Now it would be possible to just cat the output of /dev/rfcomm0 but most likely it will not show anything, this is due to the fact that you need to specify the port speed in bps (bits per second, not baud as many say in a very wrong fashion). The bps setting depends on the device/app used, it can be 38400, 115200 or something else.
 
 Run
+
 stty -F /dev/rfcomm0 115200
 
 Try to get GPS data output again (abort with Ctrl + C)
+
 cat /dev/rfcomm0
 
 If everything works, you can now continue with a working GPS connected and providing GPS data to the Owl
