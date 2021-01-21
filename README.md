@@ -70,19 +70,19 @@ trust (Bluetooth MAC address)
 
 pair (Bluetooth MAC address)
 
-(if getting errors pairing, when it has worked before with the device, run: remove <Bluetooth MAC address> and then trust it again, it can also be a result of an already paried device in the case that you have done it before)
+(if getting errors pairing when it has worked before with the device, run: remove (Bluetooth MAC address) and then trust it again, it can also be a result of an already paried device in the case that you have done it before)
 
-connect <Bluetooth MAC address>
+connect (Bluetooth MAC address)
 
 (connect might sometimes throw errors, just ignore it, for some reason it works anyway, just move on)
 
 exit (or quit)
 
-sdptool browse <Bluetooth MAC address>
+sdptool browse (Bluetooth MAC address)
 
 Identify the channel that the GPS data is coming from/on in the output from the above command, most likely something tagged with "Serial Port"
 
-rfcomm bind hci0 <Bluetooth MAC address> 8
+rfcomm bind hci0 (Bluetooth MAC address) 8
 
 (where: hci0=the BT device, the MAC address is the MAC address of the GPS device, 8=channel)
 
